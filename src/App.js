@@ -11,11 +11,11 @@ function App() {
     <Router>
       <Navigation />
       <Switch>
-        <Route path='/'>
-          <TimerPage />
-        </Route>
         <Route path='/ratios'>
           <Calculator />
+        </Route>
+        <Route path='/'>
+          <TimerPage />
         </Route>
       </Switch>
     </Router>
