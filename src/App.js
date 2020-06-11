@@ -9,7 +9,6 @@ import Calculator from './components/Calculator/Calculator';
 function App() {
   return (
     <Router>
-      <Navigation />
       <Switch>
         <Route path='/ratios'>
           <Calculator />

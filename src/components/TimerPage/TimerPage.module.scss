@@ -1,14 +1,15 @@
 .timerHolder {
   display: grid;
   grid-template-columns: 1em 1fr 2fr 1em;
-  grid-template-areas: ". timeline instructions .";
+  grid-template-areas: ". timeline timeline .";
   height: 100vh;
   .timeline {
     grid-area: timeline;
-    background-color: red;
   }
   .instructions {
     grid-area: instructions;
-    background-color: green;
+  }
+  .bold {
+    font-weight: 600;
   }
 }

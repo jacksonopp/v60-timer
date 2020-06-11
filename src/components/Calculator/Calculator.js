@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { round } from 'lodash';
 
-const Calculator = () => {
-  const [amount, setAmount] = useState(0);
+const Calculator = ({ setRatio }) => {
+  const [water, setWater] = useState(0);
   const [grounds, setGrounds] = useState(0);
 
   useEffect(() => {
     let weight;
-    weight = round(amount / 16.67, 1);
+    weight = round(water / 16.67, 1);
     setGrounds(weight);
-  }, [amount]);
+    setRatio({ water, grounds });
+  }, [water, grounds]);
 
   return (
     <>
-      <p>250mL is a good amount of coffee for one person</p>
       <form>
-        <label>How much coffee (in mL)</label>
-        <input onChange={(e) => setAmount(e.target.value)}></input>
+        <label>How much coffee (in mL) Are you making</label>
+        <input onChange={(e) => setWater(parseInt(e.target.value))}></input>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+          }}></button>
       </form>
       <p>
-        {amount}mL of coffee uses {grounds}g of grounds
+        {water}mL of coffee uses {grounds}g of grounds
       </p>
     </>
   );
