@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+
+import Navigation from './components/Navigation/Navigation';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import TimerPage from './components/TimerPage/TimerPage';
+import Calculator from './components/Calculator/Calculator';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navigation />
+      <Switch>
+        <Route path='/'>
+          <TimerPage />
+        </Route>
+        <Route path='/ratios'>
+          <Calculator />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
